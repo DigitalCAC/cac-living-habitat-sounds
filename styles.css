@@ -1,7 +1,10 @@
 /* Chicago's Living Habitat — Soundscape Pages */
-/* Direction B: Magazine / Bold Black + CAC Red */
+/* Brand-aligned to CAC 2023 Brand Style Guide */
+
+@import url("https://use.typekit.net/srs3qua.css");
 
 :root {
+  /* Brand colors */
   --bg: #ffffff;
   --bg-soft: #f5f3ee;
   --ink: #0a0a0a;
@@ -9,8 +12,12 @@
   --ink-dim: #8a8579;
   --rule-soft: #e6e2d8;
   --rule-hard: #0a0a0a;
-  --red: #b31d1d;
-  --red-dark: #8a1313;
+  --red: #cc0000;
+  --red-dark: #a30000;
+
+  /* Type stack — Adobe Fonts with safe fallbacks */
+  --font-display: "franklin-gothic-condensed", "Franklin Gothic Condensed", "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "avenir-next", "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Nunito Sans", sans-serif;
 }
 
 * {
@@ -22,7 +29,7 @@
 html, body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Helvetica Neue', Helvetica, Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.55;
   min-height: 100vh;
@@ -37,31 +44,52 @@ html, body {
   min-height: 100vh;
 }
 
-/* ===== Top brand bar ===== */
+/* ===== Top brand bar (white) ===== */
 .brand-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px 12px;
   border-bottom: 1px solid var(--rule-hard);
+  gap: 12px;
 }
 
-.brand-bar .cac-mark {
+.brand-bar .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-bar .logo {
+  height: 26px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.brand-bar .org-name {
+  font-family: var(--font-display);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-bar .exhibit-name {
+  font-family: var(--font-display);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.2em;
   color: var(--ink-mid);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-/* ===== Number badge + meta strip ===== */
+/* ===== SCAPE number strip ===== */
 .scape-strip {
   display: grid;
   grid-template-columns: 100px 1fr;
@@ -71,24 +99,25 @@ html, body {
 .scape-number {
   background: var(--red);
   color: #ffffff;
-  padding: 24px 12px;
+  padding: 22px 12px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: var(--font-display);
 }
 
 .scape-number .label-top,
 .scape-number .label-bottom {
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.2em;
   opacity: 0.9;
 }
 
 .scape-number .number {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 44px;
+  font-weight: 600;
   line-height: 1;
   margin: 4px 0;
 }
@@ -100,45 +129,67 @@ html, body {
   justify-content: center;
 }
 
-.scape-meta .meta-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--ink-mid);
+.scape-meta .category {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
   margin-bottom: 6px;
 }
 
+.scape-meta .meta-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 4px;
+}
+
 .scape-meta .meta-time {
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--ink);
   line-height: 1.4;
+  font-weight: 400;
 }
 
-/* ===== Massive title ===== */
+.scape-meta .recorded-flag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--ink-mid);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* ===== Title block ===== */
 .title-block {
   padding: 32px 20px 20px;
 }
 
 h1 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 52px;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: var(--ink);
   margin: 0 0 14px;
   text-transform: uppercase;
 }
 
 .subtitle {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
+  font-family: var(--font-body);
+  font-weight: 400;
   font-size: 17px;
   color: var(--ink-mid);
   line-height: 1.4;
 }
 
-/* ===== Audio player ===== */
+/* ===== Audio player (dark, full controls) ===== */
 .player {
   margin: 0 20px 32px;
   background: var(--ink);
@@ -146,9 +197,11 @@ h1 {
 }
 
 .player-label {
+  font-family: var(--font-display);
   font-size: 10px;
   letter-spacing: 0.2em;
-  font-weight: 700;
+  font-weight: 500;
+  text-transform: uppercase;
   color: #ffffff;
   opacity: 0.7;
   margin-bottom: 12px;
@@ -161,18 +214,18 @@ audio {
   border-radius: 0;
 }
 
-/* WebKit (iOS / Safari) audio styling */
 audio::-webkit-media-controls-panel {
   background: #ffffff;
 }
 
 .headphone-tip {
   margin-top: 12px;
+  font-family: var(--font-display);
   font-size: 10px;
   color: #ffffff;
   opacity: 0.7;
-  letter-spacing: 0.1em;
-  font-weight: 600;
+  letter-spacing: 0.15em;
+  font-weight: 500;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -191,8 +244,9 @@ audio::-webkit-media-controls-panel {
 }
 
 .section-label {
-  font-size: 10px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
   letter-spacing: 0.2em;
   color: var(--ink);
   text-transform: uppercase;
@@ -211,19 +265,21 @@ audio::-webkit-media-controls-panel {
 }
 
 .section-body {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.65;
   color: var(--ink);
+  font-weight: 400;
 }
 
-.section-body em {
-  font-style: italic;
-  color: var(--red-dark);
+/* Per brand guide: color, not typeface, for emphasis */
+.section-body .highlight {
+  color: var(--red);
   font-weight: 600;
+  font-style: normal;
 }
 
-/* ===== Listen-for list ===== */
+/* ===== Species list ===== */
 .species-list {
   list-style: none;
   padding: 0;
@@ -248,47 +304,71 @@ audio::-webkit-media-controls-panel {
 }
 
 .species-list li .name {
+  font-family: var(--font-body);
   font-size: 15px;
   color: var(--ink);
+  font-weight: 400;
 }
 
 .species-list li.notable .name {
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--red);
 }
 
 .species-list li .tag {
   background: var(--red);
   color: #ffffff;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   padding: 4px 9px;
   text-transform: uppercase;
   flex-shrink: 0;
 }
 
-/* ===== Footer ===== */
+/* ===== Footer (black) ===== */
 footer {
   background: var(--ink);
   color: #ffffff;
   padding: 22px 20px;
-  font-size: 12px;
-  line-height: 1.55;
   margin-top: 8px;
 }
 
-footer .footer-text {
-  opacity: 0.75;
+footer .footer-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-footer em {
-  font-style: italic;
+footer .footer-logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+footer .footer-text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+footer .recording-credit {
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 footer .arch-link {
-  margin-top: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.2em;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -298,6 +378,7 @@ footer .arch-link a {
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 2px;
+  transition: border-color 0.2s;
 }
 
 footer .arch-link a:hover {
@@ -306,74 +387,110 @@ footer .arch-link a:hover {
 
 /* ===== Index page specific ===== */
 .index-intro {
-  padding: 28px 20px 16px;
-  font-family: Georgia, 'Times New Roman', serif;
+  padding: 28px 20px 8px;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-mid);
-  font-style: italic;
+  font-weight: 400;
 }
 
 .eco-list {
   padding: 0 20px;
   margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
+  margin-top: 16px;
 }
 
 .eco-card {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  border-top: 1px solid var(--rule-hard);
-  padding: 18px 0;
+  display: block;
   text-decoration: none;
   color: inherit;
-  align-items: start;
-  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule-hard);
 }
 
 .eco-card:last-child {
   border-bottom: 1px solid var(--rule-hard);
 }
 
-.eco-card-num {
-  font-weight: 800;
-  font-size: 28px;
-  color: var(--red);
+.eco-card-header {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.scape-num-mini {
+  background: var(--red);
+  color: #ffffff;
+  padding: 10px 6px;
+  text-align: center;
+  font-family: var(--font-display);
+}
+
+.scape-num-mini .label {
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  opacity: 0.9;
+}
+
+.scape-num-mini .num {
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.02em;
+  margin-top: 2px;
 }
 
 .eco-card-body h2 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 22px;
   line-height: 1.05;
-  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--ink);
   margin: 0 0 4px;
 }
 
-.eco-card-body .timestamp {
+.eco-card-body .card-category {
+  font-family: var(--font-display);
   font-size: 10px;
-  letter-spacing: 0.18em;
-  font-weight: 700;
-  color: var(--ink-mid);
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  color: var(--red);
+  margin-bottom: 4px;
 }
 
-.eco-card-body audio {
+.eco-card-body .timestamp {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  color: var(--ink-mid);
+  text-transform: uppercase;
+}
+
+.eco-card-arrow {
+  font-size: 22px;
+  color: var(--red);
+  font-weight: 700;
+  align-self: center;
+}
+
+/* Light minimal player for index */
+.player-light {
+  background: var(--bg-soft);
+}
+
+.player-light audio {
   height: 40px;
 }
 
 /* Mobile tightening */
 @media (max-width: 380px) {
-  h1 {
-    font-size: 44px;
-  }
-  .scape-number .number {
-    font-size: 36px;
-  }
+  h1 { font-size: 44px; }
+  .scape-number .number { font-size: 36px; }
+  .brand-bar .org-name { font-size: 10px; letter-spacing: 0.15em; }
 }
