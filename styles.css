@@ -40,14 +40,18 @@ html, body {
 
 /* ===== Top brand bar ===== */
 .brand-bar {
-  padding: 28px 16px 24px;
+  padding: 28px 60px 24px;
   border-bottom: 1px solid var(--rule-hard);
+}
+
+.brand-bar a {
+  display: block;
+  text-decoration: none;
 }
 
 .brand-bar img {
   display: block;
   width: 100%;
-  max-width: 540px;
   height: auto;
   margin: 0 auto;
 }
@@ -96,7 +100,7 @@ html, body {
   font-family: var(--font-display);
   font-size: 26px;
   font-weight: 500;
-  letter-spacing: -0.005em;
+  letter-spacing: 0.025em;
   text-transform: uppercase;
   color: var(--red);
   line-height: 1;
@@ -129,9 +133,9 @@ html, body {
 h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 56px;
-  line-height: 1.0;
-  letter-spacing: 0;
+  font-size: 42px;
+  line-height: 1.05;
+  letter-spacing: 0.025em;
   color: var(--ink);
   margin: 0;
   text-transform: uppercase;
@@ -295,7 +299,7 @@ audio::-webkit-media-controls-panel { background: #ffffff; }
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.025em;
   text-transform: uppercase;
   color: var(--ink);
 }
@@ -304,22 +308,7 @@ audio::-webkit-media-controls-panel { background: #ffffff; }
 footer {
   background: var(--bg);
   padding: 28px 20px 24px;
-  border-top: 2px solid var(--rule-hard);
-  margin-top: 8px;
-}
-
-footer .footer-logo-row {
-  margin-bottom: 18px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--rule-soft);
-  display: flex;
-  justify-content: center;
-}
-
-footer .footer-logo-row img {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
+  margin-top: 24px;
 }
 
 footer .footer-text {
@@ -381,7 +370,7 @@ footer .arch-link a:hover { border-bottom-color: var(--red); }
 
 /* ===== Index page specific ===== */
 .index-intro {
-  padding: 28px 20px 8px;
+  padding: 8px 20px 8px;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
@@ -453,9 +442,10 @@ footer .arch-link a:hover { border-bottom-color: var(--red); }
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 22px;
-  line-height: 1.05;
+  line-height: 1.1;
   text-transform: uppercase;
   color: var(--ink);
+  letter-spacing: 0.025em;
   margin: 0 0 4px;
 }
 
