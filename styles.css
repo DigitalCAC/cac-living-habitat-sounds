@@ -130,10 +130,15 @@ html, body {
   padding: 44px 20px 36px;
 }
 
+.title-block.index-title {
+  text-align: center;
+  padding: 48px 20px 32px;
+}
+
 h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 42px;
+  font-size: 40px;
   line-height: 1.05;
   letter-spacing: 0.025em;
   color: var(--ink);
@@ -470,7 +475,7 @@ footer .arch-link a:hover { border-bottom-color: var(--red); }
 
 /* ===== Mobile tightening ===== */
 @media (max-width: 380px) {
-  h1 { font-size: 44px; }
+  h1 { font-size: 34px; }
   .scape-number .number { font-size: 36px; }
   .scape-meta .category { font-size: 22px; }
   .brand-bar img { max-width: 100%; }
